@@ -20,4 +20,9 @@ class Keyboard {
     public void setWireless(boolean wireless) {
         this.wireless = wireless;
     }
+
+    @Override
+    public String toString(){
+        return "Keyboard: " + brand;
+    }
 }

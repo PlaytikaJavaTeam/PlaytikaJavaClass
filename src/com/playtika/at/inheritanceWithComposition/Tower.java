@@ -38,4 +38,9 @@ class Tower {
     public void setHardDrive(int hardDrive) {
         this.hardDrive = hardDrive;
     }
+
+    @Override
+    public String toString(){
+        return "Tower: " + processor;
+    }
 }

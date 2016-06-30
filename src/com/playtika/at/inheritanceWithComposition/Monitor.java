@@ -20,4 +20,9 @@ class Monitor {
     public void setScreenSize(int screenSize) {
         this.screenSize = screenSize;
     }
+
+    @Override
+    public String toString(){
+        return "Monitor: " + brand;
+    }
 }

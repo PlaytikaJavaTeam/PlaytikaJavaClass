@@ -20,4 +20,9 @@ class Mouse {
     public void setWireless(boolean wireless) {
         this.wireless = wireless;
     }
+
+    @Override
+    public String toString(){
+        return "Mouse: " + brand;
+    }
 }
