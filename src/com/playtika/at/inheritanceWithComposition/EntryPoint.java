@@ -4,28 +4,11 @@ public class EntryPoint  {
 
     public static void main(String[] args) {
 
-        Keyboard keyboard = new Keyboard();
-        keyboard.setBrand("Logitech");
-        keyboard.setWireless(true);
+        Keyboard keyboard = new Keyboard("Logitech" , true);
+        Monitor monitor = new Monitor("LG", 21);
+        Mouse mouse = new Mouse("Microsoft", true);
+        Tower tower = new Tower("Nvidia", 8, "Intel", 500);
 
-        Monitor monitor = new Monitor();
-        monitor.setScreenSize(21);
-        monitor.setBrand("LG");
-
-        Mouse mouse = new Mouse();
-        mouse.setBrand("Microsoft");
-        mouse.setWireless(true);
-
-        Tower tower = new Tower();
-        tower.setVideoCard("Nvidia");
-        tower.setHardDrive(500);
-        tower.setRam(8);
-        tower.setProcessor("Intel");
-
-        ComputerInstance instance = new ComputerInstance();
-        instance.setKeyboard(keyboard);
-        instance.setMonitor(monitor);
-        instance.setMouse(mouse);
-        instance.setTower(tower);
+        ComputerInstance instance = new ComputerInstance(keyboard, monitor, mouse, tower);
     }
 }
