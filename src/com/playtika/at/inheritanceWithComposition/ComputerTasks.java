@@ -1,6 +1,6 @@
 package com.playtika.at.inheritanceWithComposition;
 
-abstract class Computer implements Actions {
+class ComputerTasks implements Actions {
 
     @Override
     public void calculate() {
