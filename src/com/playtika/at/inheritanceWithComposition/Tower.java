@@ -7,40 +7,26 @@ class Tower {
     private String videoCard;
     private int hardDrive;
 
-    public String getProcessor() {
-        return processor;
+    public Tower(String processor, int ram, String videoCard, int hardDrive) {
+        this.processor = processor;
+        this.ram = ram;
+        this.videoCard = videoCard;
+        this.hardDrive = hardDrive;
     }
 
-    public void setProcessor(String processor) {
-        this.processor = processor;
+    public String getProcessor() {
+        return processor;
     }
 
     public int getRam() {
         return ram;
     }
 
-    public void setRam(int ram) {
-        this.ram = ram;
-    }
-
     public String getVideoCard() {
         return videoCard;
     }
 
-    public void setVideoCard(String videoCard) {
-        this.videoCard = videoCard;
-    }
-
     public int getHardDrive() {
         return hardDrive;
-    }
-
-    public void setHardDrive(int hardDrive) {
-        this.hardDrive = hardDrive;
-    }
-
-    @Override
-    public String toString(){
-        return "Tower: " + processor;
     }
 }

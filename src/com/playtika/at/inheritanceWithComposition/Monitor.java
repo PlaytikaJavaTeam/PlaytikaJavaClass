@@ -5,6 +5,11 @@ class Monitor {
     private String brand;
     private int screenSize;
 
+    public Monitor(String brand, int screenSize) {
+        this.brand = brand;
+        this.screenSize = screenSize;
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -19,10 +24,5 @@ class Monitor {
 
     public void setScreenSize(int screenSize) {
         this.screenSize = screenSize;
-    }
-
-    @Override
-    public String toString(){
-        return "Monitor: " + brand;
     }
 }
