@@ -1,9 +1,7 @@
 package com.playtika.at.LinkedListAlgoritm;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Исходные данные: Есть интовый линкедЛист, заполненый рендомно, придумать алгоритм наименьшей сложности
@@ -16,27 +14,35 @@ public class Main {
     public static void main(String[] args) {
 
         List<Integer> randomList = new LinkedList<>();
-        for (int i = 0; i < 100; i++) {
-            randomList.add(i);
+
+        for (int i = 0; i < 10; i++) {
+            randomList.add(i, randInt(0 - i, 10 - i));
         }
-        Collections.shuffle(randomList);
+        for (int rnd : randomList) {
+            System.out.print(rnd + " ");
+        }
         lastSummElement(randomList);
+    }
+
+    private static int randInt(int min, int max) {
+        int randomNum = min + (int) (Math.random() * ((max - min) + 1));
+        return randomNum;
     }
 
     private static void lastSummElement(List<Integer> randomList) {
 
-        Random randomGenerator = new Random();
         int counter = 0;
 
-        for (int i = 0; i < randomList.size(); ) {
-            i += randomList.get(i);
+        for (int i = 0; i < randomList.size() - 1; ) {
+            i = i + randomList.get(i);
             counter++;
+            System.out.println(i);
 
-            if (i > randomList.size() - 1) {
-                i = randomGenerator.nextInt(99);
-
-            } else if (i == 99) {
-                System.out.println(counter);
+            if (i == randomList.size() - 1){
+                System.out.println("WOW " + counter);
+                break;
+            } else if (counter > 10){
+                break;
             }
         }
     }
