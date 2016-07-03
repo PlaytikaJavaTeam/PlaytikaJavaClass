@@ -11,39 +11,39 @@ import java.util.List;
  */
 public class Main {
 
+    public static int counter;
+
     public static void main(String[] args) {
+        int preferredListSize = 10;
+        int startFillList = 0;
+        int startSearchElement = 1;
 
         List<Integer> randomList = new LinkedList<>();
 
-        for (int i = 0; i < 10; i++) {
-            randomList.add(i, randInt(0 - i, 10 - i));
+        for (int i = 0; i < preferredListSize; i++) {
+            randomList.add(i, randInt(startFillList - i, preferredListSize - i - 1));
         }
         for (int rnd : randomList) {
             System.out.print(rnd + " ");
         }
-        lastSummElement(randomList);
+        System.out.println();
+        lastSumElement(randomList, startSearchElement);
     }
 
     private static int randInt(int min, int max) {
-        int randomNum = min + (int) (Math.random() * ((max - min) + 1));
-        return randomNum;
+        return min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    private static void lastSummElement(List<Integer> randomList) {
+    private static void lastSumElement(List<Integer> randomList, int entryElement) {
 
-        int counter = 0;
+        counter++;
 
-        for (int i = 0; i < randomList.size() - 1; ) {
-            i = i + randomList.get(i);
-            counter++;
-            System.out.println(i);
+        if (entryElement == randomList.size() - 1) {
+            System.out.println("WOW, you're found from " + counter + " attempt.");
 
-            if (i == randomList.size() - 1){
-                System.out.println("WOW " + counter);
-                break;
-            } else if (counter > 10){
-                break;
-            }
+        } else {
+            entryElement = randomList.get(entryElement) + entryElement;
+            lastSumElement(randomList, entryElement);
         }
     }
 }
