@@ -16,19 +16,19 @@ public class Main {
     private static int counter;
 
     public static void main(String[] args) {
-        int preferredListSize = 100;
+        int preferredListSize = 1000;
         int startFillList = 0;
-        int startSearchElement = 1;
+        int startSearchElement = 0;
 
         List<Integer> randomList = new LinkedList<>();
 
         for (int i = 0; i < preferredListSize; i++) {
             randomList.add(i, randInt(startFillList - i, preferredListSize - i - 1));
         }
-        for (int rnd : randomList) {
-            System.out.print(rnd + " ");
-        }
-        System.out.println();
+//        for (int rnd : randomList) {
+//            System.out.print(rnd + " ");
+//        }
+//        System.out.println();
         lastSumElement(randomList, startSearchElement);
     }
 
