@@ -12,14 +12,11 @@ import java.util.List;
  */
 public class Main {
 
-
     private static ArrayList<Integer> arrayList = new ArrayList<>();
-    private static ArrayList<Integer> inputElementsList = new ArrayList<>();
-    private static int counter;
-
+     private static int counter;
 
     public static void main(String[] args) {
-        int preferredListSize = 100;
+        int preferredListSize = 10;
         int startFillList = 0;
         int startSearchElement = 1;
 
@@ -42,18 +39,14 @@ public class Main {
     private static void lastSumElement(List<Integer> randomList, int entryElement) {
 
         counter++;
+        arrayList.addAll(randomList);
 
-        if (entryElement == randomList.size() - 1) {
+        if (entryElement == arrayList.size() - 1) {
             System.out.println("WOW, you're found it from " + counter + " attempt(s).");
-        } else if (inputElementsList.contains(entryElement)) {
-            System.out.println("infinite loop...Run again.");
         } else {
-            arrayList.addAll(randomList);
-            System.out.println(arrayList.get(8));
-           // inputElementsList.add(entryElement);
-//            entryElement = randomList.get(entryElement) + entryElement;
-//            lastSumElement(randomList, entryElement);
-
+            entryElement = arrayList.get(entryElement) + entryElement;
+            System.out.println(entryElement);
+            lastSumElement(arrayList, entryElement);
         }
     }
 }
