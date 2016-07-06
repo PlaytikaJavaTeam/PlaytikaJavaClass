@@ -1,5 +1,6 @@
 package com.playtika.at.LinkedListAlgoritm;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +12,8 @@ import java.util.List;
  */
 public class Main {
 
-    public static int counter;
+    private static int counter;
+    private static ArrayList<Integer> arrayList = new ArrayList<>();
 
     public static void main(String[] args) {
         int preferredListSize = 10;
@@ -42,9 +44,10 @@ public class Main {
             System.out.println("WOW, you're found from " + counter + " attempt.");
 
         } else {
-            
-            entryElement = randomList.get(entryElement) + entryElement;
-            lastSumElement(randomList, entryElement);
+            arrayList.addAll(randomList);
+            System.out.println(arrayList.get(8));
+//            entryElement = randomList.get(entryElement) + entryElement;
+//            lastSumElement(randomList, entryElement);
         }
     }
 }
