@@ -42,6 +42,7 @@ public class Main {
             System.out.println("WOW, you're found from " + counter + " attempt.");
 
         } else {
+            
             entryElement = randomList.get(entryElement) + entryElement;
             lastSumElement(randomList, entryElement);
         }
