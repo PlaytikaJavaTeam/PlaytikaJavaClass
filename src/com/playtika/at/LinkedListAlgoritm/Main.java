@@ -16,7 +16,7 @@ public class Main {
     private static int counter;
 
     public static void main(String[] args) {
-        int preferredListSize = 10;
+        int preferredListSize = 10000000;
         int startFillList = 0;
         int startSearchElement = 0;
 
@@ -25,10 +25,7 @@ public class Main {
         for (int i = 0; i < preferredListSize; i++) {
             randomList.add(i, randInt(startFillList - i, preferredListSize - i - 1));
         }
-        for (int rnd : randomList) {
-            System.out.print(rnd + " ");
-        }
-        System.out.println();
+
         arrayList.addAll(randomList);
         lastSumElement(startSearchElement);
     }
@@ -37,17 +34,18 @@ public class Main {
         return min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    private static void lastSumElement(int entryElement) {
+    private static void lastSumElement(int inputIndex) {
 
         counter++;
+        int newIndex;
 
-        if (entryElement == arrayList.size() - 1) {
+        if (inputIndex == arrayList.size() - 1) {
             System.out.println("WOW, you're found it from " + counter + " attempt(s).");
         } else {
-            entryElement = entryElement + arrayList.get(entryElement);
-            arrayList.set(entryElement, null); // TODO think about realization
+            newIndex = inputIndex + arrayList.get(inputIndex);
+            arrayList.set(inputIndex, null);
             try {
-                lastSumElement(entryElement);
+                lastSumElement(newIndex);
             } catch (NullPointerException e){
                 System.out.println("Infinite loop.....on " + counter );
             }
