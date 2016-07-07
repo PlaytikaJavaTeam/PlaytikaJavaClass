@@ -13,10 +13,10 @@ import java.util.List;
 public class Main {
 
     private static ArrayList<Integer> arrayList = new ArrayList<>();
-     private static int counter;
+    private static int counter;
 
     public static void main(String[] args) {
-        int preferredListSize = 1000;
+        int preferredListSize = 10;
         int startFillList = 0;
         int startSearchElement = 0;
 
@@ -25,28 +25,32 @@ public class Main {
         for (int i = 0; i < preferredListSize; i++) {
             randomList.add(i, randInt(startFillList - i, preferredListSize - i - 1));
         }
-//        for (int rnd : randomList) {
-//            System.out.print(rnd + " ");
-//        }
-//        System.out.println();
-        lastSumElement(randomList, startSearchElement);
+        for (int rnd : randomList) {
+            System.out.print(rnd + " ");
+        }
+        System.out.println();
+        arrayList.addAll(randomList);
+        lastSumElement(startSearchElement);
     }
 
     private static int randInt(int min, int max) {
         return min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    private static void lastSumElement(List<Integer> randomList, int entryElement) {
+    private static void lastSumElement(int entryElement) {
 
         counter++;
-        arrayList.addAll(randomList);
 
         if (entryElement == arrayList.size() - 1) {
             System.out.println("WOW, you're found it from " + counter + " attempt(s).");
         } else {
-            entryElement = arrayList.get(entryElement) + entryElement;
-            System.out.println(entryElement);
-            lastSumElement(arrayList, entryElement);
+            entryElement = entryElement + arrayList.get(entryElement);
+            arrayList.set(entryElement, null); // TODO think about realization
+            try {
+                lastSumElement(entryElement);
+            } catch (NullPointerException e){
+                System.out.println("Infinite loop.....on " + counter );
+            }
         }
     }
 }
