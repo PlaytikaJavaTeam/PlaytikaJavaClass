@@ -33,8 +33,8 @@ public class Main {
         long afterArrayCopyTime = System.currentTimeMillis();
 
         long beforeSearchTime = System.currentTimeMillis();
-        //lastSumElementFirstRealization(startSearchElement);
-        lastSumElementFinalRealization(startSearchElement);
+        lastSumElementFirstRealization(startSearchElement);
+        //lastSumElementFinalRealization(startSearchElement);
         long afterSearchTime = System.currentTimeMillis();
 
         System.out.println("Filling LinkedList is " + (afterAddLinkedListTime - beforeAddLinkedListTime) + " ms.");
@@ -67,18 +67,13 @@ public class Main {
     private static void lastSumElementFirstRealization(int inputIndex) {
 
         counter++;
-        int newIndex;
 
         if (inputIndex == arrayList.size() - 1) {
             System.out.println("WOW, you're found it from " + counter + " attempt(s).");
         } else {
-            newIndex = inputIndex + arrayList.get(inputIndex);
-            arrayList.set(inputIndex, null);
-            try {
-                lastSumElementFirstRealization(newIndex);
-            } catch (NullPointerException e){
-                System.out.println("Infinite loop.....on " + counter );
-            }
+            inputIndex = arrayList.get(inputIndex) + inputIndex;
+            System.out.println(inputIndex);
+            lastSumElementFirstRealization(inputIndex);
         }
     }
 }
