@@ -70,9 +70,11 @@ public class Main {
 
         if (inputIndex == arrayList.size() - 1) {
             System.out.println("WOW, you're found it from " + counter + " attempt(s).");
+        } else if (arrayList.contains(inputIndex)) {
+            System.out.println("Infinite loop...Run again.");
         } else {
+            arrayList.add(inputIndex);
             inputIndex = arrayList.get(inputIndex) + inputIndex;
-            System.out.println(inputIndex);
             lastSumElementFirstRealization(inputIndex);
         }
     }
