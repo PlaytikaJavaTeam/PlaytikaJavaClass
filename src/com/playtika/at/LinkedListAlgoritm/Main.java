@@ -1,6 +1,7 @@
 package com.playtika.at.LinkedListAlgoritm;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,12 +23,23 @@ public class Main {
 
         List<Integer> randomList = new LinkedList<>();
 
+        long beforeAddLinkedListTime = System.currentTimeMillis();
         for (int i = 0; i < preferredListSize; i++) {
             randomList.add(i, randInt(startFillList - i, preferredListSize - i - 1));
         }
+        long afterAddLinkedListTime = System.currentTimeMillis();
 
+        long beforeArrayCopyTime = System.currentTimeMillis();
         arrayList.addAll(randomList);
+        long afterArrayCopyTime = System.currentTimeMillis();
+
+        long beforeSearchTime = System.currentTimeMillis();
         lastSumElement(startSearchElement);
+        long afterSearchTime = System.currentTimeMillis();
+
+        System.out.println("Filling LinkedList is " + (afterAddLinkedListTime - beforeAddLinkedListTime) + " ms.");
+        System.out.println("Copying to ArrayList is " + (afterArrayCopyTime - beforeArrayCopyTime) + " ms.");
+        System.out.println("Searching last element is " + (afterSearchTime - beforeSearchTime) + " ms.");
     }
 
     private static int randInt(int min, int max) {
@@ -46,8 +58,8 @@ public class Main {
             arrayList.set(inputIndex, null);
             try {
                 lastSumElement(newIndex);
-            } catch (NullPointerException e){
-                System.out.println("Infinite loop.....on " + counter );
+            } catch (NullPointerException e) {
+                System.out.println("Infinite loop.....on " + counter + " jump.");
             }
         }
     }
